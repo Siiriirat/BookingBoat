@@ -8,6 +8,10 @@
   <hr class="my-1">
 </div>
 
+<!-- navmenu -->
+<nav class="container-fluid">
+    <p class="breadcrumb-item active" aria-current="page">Home</p>
+</nav>
 <!-- menu -->
 <div class="container-fluid">
   <div class="row">
@@ -55,12 +59,35 @@
                   </div>
               </div>
           </form>
-      </div>
+      </div><br>
+      <!-- Search by name -->
+      <div class="card card-outline-secondary">
+          <div class="card-body">
+              <h3 class="text-center">Search By Name</h3>
+              <hr>
+              <form class="form" role="form" autocomplete="off">
+                  <div class="form-group">
+                      <label for="cc_name">Input Name</label>
+                      <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </form>
+        </div>
   </div>
 <!-- /form card cc payment -->
 
 <!-- promotion boat -->
     <div class="col-sm-9">
+      <h3 class="text-center">Promotions</h3><br>
       <div class="card-deck">
     <div class="card">
       <img class="card-img-top" src="<?php echo base_url('/public/image/1.jpg'); ?>" alt="Card image cap">
