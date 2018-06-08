@@ -24,4 +24,11 @@ class Booking extends CI_Controller {
 		$this->load->view('booking');
 		$this->load->view('template/footer');
 	}
+
+	public function home()
+	{
+		$this->load->view('template/header');
+		$this->load->view('home');
+		$this->load->view('template/footer');
+	}
 }

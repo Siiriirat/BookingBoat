@@ -8,3 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-primary fixed-top">
+			<a class="navbar-brand" href="#">Booking-Boat</a>
+	</nav>	

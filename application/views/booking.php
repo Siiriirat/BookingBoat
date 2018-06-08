@@ -1,6 +1,3 @@
-<nav class="navbar navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Booking-Boat</a>
-</nav>
  		<!-- <img src="<?php echo base_url(); ?>/public/image/1.jpg" > -->
 		<img src="<?php echo base_url(); ?>/public/image/1.jpg.png" height="600 px" width="100%">
 		<!-- Button trigger modal -->
