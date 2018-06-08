@@ -1,6 +1,11 @@
  		<!-- <img src="<?php echo base_url(); ?>/public/image/1.jpg" > -->
 		<img src="<?php echo base_url(); ?>/public/image/1.jpg.png" height="600 px" width="100%">
 		<!-- Button trigger modal -->
+		<!-- navmenu -->
+		<nav class="container">
+		    <p class="breadcrumb-item active" aria-current="page">Home</p>
+		</nav>
+
 <br><br>
 <div class="container">
 	<div align="right">
