@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Booking extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,8 @@ class Booking extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->view('template/header');
+		$this->load->view('home');
+		$this->load->view('template/footer');
 	}
-
 }
