@@ -2,7 +2,12 @@
 <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" height="600 px" width="100%">
 		<!-- Button trigger modal -->
 <br><br>
-<div class="container">
+<nav class="container-fluid">
+  <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
+  <a class="breadcrumb-item" href="#"><?php echo $type; ?></a>
+	<span class="breadcrumb-item active"><?php echo $name; ?></span>
+</nav>
+<div class="container-fluid">
 <!-- ButtonBooking -->
 	<div align="right">
 		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
@@ -12,11 +17,12 @@
 <!-- ButtonBooking -->
 <br><br>
 <!-- Modal -->
+<form action="<?php echo base_url(); ?>submit_form" method="post" accept-charset="utf-8">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
 		     <div class="modal-header">
-		       <b><h5 class="modal-title" id="exampleModalLabel">Boat Name</h5></b>
+		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $name; ?></h5></b>
 		       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		         <span aria-hidden="true">&times;</span>
 		       </button>
@@ -59,12 +65,15 @@
 				 </div>
 		     </div>
 		     <div class="modal-footer">
+					 <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
+					 <input type="hidden" id="type" name="type" value="<?php echo $type; ?>">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		       <button type="button" class="btn btn-primary">Save changes</button>
+		       <button type="submit" class="btn btn-primary">Save changes</button>
 		     </div>
 		   </div>
 		 </div>
 	</div>
+</form>
 <!-- Modal -->
 <!-- DetailBoat -->
     <div class="row">
@@ -81,7 +90,7 @@
 									</div>
 									<div class="col md-6">
 									 <div align="left">
-										<h3 class="m-b-xs"><strong>Boat Name</strong></h3>
+										<h3 class="m-b-xs"><strong><?php echo $name; ?></strong></h3>
  										<div class="font-bold">Description</div>
  										<address class="m-t-md">
  												<strong>Twitter, Inc.</strong><br>
@@ -150,6 +159,4 @@
     </div>
 <!-- DetailBoat -->
 </div>
-
-
 <?php include('footer.php');?>
