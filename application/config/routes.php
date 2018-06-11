@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Page_home';
 $route['(:any)/(:num)'] = 'Page_boat/index/$1/$2';
-
+$route['Page_Boat/submit_form'] = 'Page_booking/booking';
+$route['(:any)/(:num)'] = 'Page_boat/test';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
