@@ -8,7 +8,7 @@ class Page_home extends CI_Controller {
 	public function index()
 	{
 		$data['module'] = $this->module;
-		$data['show'] = $this->Page_homemodel->getAllTemplate();
+		$data['show'] = $this->Page_homemodel->getData();
 		$this->load->view('template/page.home.php', $data);
 	}
 

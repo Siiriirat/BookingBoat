@@ -118,4 +118,9 @@
     </div>
   </div>
 </div>
+<?php foreach($show as $row){ ?>
+        <h3><?php echo $row->id;  ?></h3>
+        <a href="<?php echo base_url('Page_boat/detail_boat?id='.$row->id.''); ?>">View</a> |
+<?php } ?>
+
 <?php include('footer.php');?>

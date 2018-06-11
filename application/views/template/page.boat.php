@@ -4,8 +4,8 @@
 <br><br>
 <nav class="container-fluid">
   <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
-  <a class="breadcrumb-item" href="#"><?php echo $type; ?></a>
-	<span class="breadcrumb-item active"><?php echo $name; ?></span>
+  <a class="breadcrumb-item" href="#"><?php echo $show[0]->category_id;?></a>
+	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
 </nav>
 <div class="container-fluid">
 <!-- ButtonBooking -->
@@ -17,13 +17,12 @@
 <!-- ButtonBooking -->
 <br><br>
 <!-- Modal -->
-
 <form action="<?php echo base_url(); ?>Page_Boat/submit_form" method="post" accept-charset="utf-8">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
 		     <div class="modal-header">
-		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $show->title; ?></h5></b>
+		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $show[0]->title;?></h5></b>
 		       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		         <span aria-hidden="true">&times;</span>
 		       </button>
@@ -66,8 +65,8 @@
 				 </div>
 		     </div>
 		     <div class="modal-footer">
-					 <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
-					 <input type="hidden" id="type" name="type" value="<?php echo $type; ?>">
+					 <input type="hidden" id="name" name="name" value="">
+					 <input type="hidden" id="type" name="type" value="">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		       <button type="submit" class="btn btn-primary">Save changes</button>
 		     </div>
@@ -82,7 +81,6 @@
 			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet">
 			<div class="col-md-8">
 					<div class="contact-box center-version">
-
 								<div class="row">
 									<div class="col md-6">
 										<div align="left">
@@ -92,35 +90,28 @@
                           <div class="numbertext">1 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <div class="mySlides">
                           <div class="numbertext">2 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <div class="mySlides">
                           <div class="numbertext">3 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <div class="mySlides">
                           <div class="numbertext">4 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <div class="mySlides">
                           <div class="numbertext">5 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <div class="mySlides">
                           <div class="numbertext">6 / 6</div>
                           <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
                         </div>
-
                         <a class="prev" onclick="plusSlides(-1)">❮</a>
                         <a class="next" onclick="plusSlides(1)">❯</a>
-
                         <div class="caption-container">
                           <p id="caption"></p>
                         </div>
@@ -151,19 +142,23 @@
 									</div>
 									<div class="col md-6">
 									 <div align="left">
-										<h3 class="m-b-xs"><strong><?php echo $name; ?></strong></h3>
- 										<div class="font-bold">Description</div>
+										<h3 class="m-b-xs">
+                      <strong>
+                        <?php echo $show[0]->title;?><br>
+                      </strong>
+                    </h3>
+ 										<div class="font-bold"><strong>Description</strong></div><br>
  										<address class="m-t-md">
- 												<strong>Twitter, Inc.</strong><br>
- 												795 Folsom Ave, Suite 600<br>
- 												San Francisco, CA 94107<br>
- 												<abbr title="Phone">P:</abbr> (123) 456-7890
+                        <?php echo $show[0]->description;?><br><br>
+                        <?php if($show[0]->want_to == "sale") {?>
+                        <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
+                        <?php echo $show[0]->want_to;?>
+                        <input type="checkbox" name="want_to" value="charter" disabled> charter
+                        <?php } ?>
  										</address>
 									 </div>
-
 									</div>
 								</div>
-
 							<div class="contact-box-footer">
 							 <div class="row">
 								 <div class="col md-10">
@@ -176,8 +171,8 @@
 	 									</li>
 	 								 </ul>
 	 								 <div class="tab-content" id="myTabContent">
-	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab">General Information</div>
-	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab">Detail</div>
+	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab"><div align= "left"><?php echo $show[0]->description;?></div></div>
+	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab"><div align= "left"><?php echo $show[0]->detail;?></div></div>
 	 								 </div>
 								 </div>
 							 </div>
@@ -220,10 +215,6 @@
     </div>
 <!-- DetailBoat -->
 </div>
-<?php foreach($show as $row){ ?>
-        <h3><?php echo $row->id;  ?></h3>
-
-<?php } ?>
 <!-- ScriptImageslide -->
 <script>
 var slideIndex = 1;
@@ -256,8 +247,4 @@ function showSlides(n) {
 }
 </script>
 <!-- ScriptImageslide -->
-<?php foreach($show as $row){ ?>
-        <h3><?php echo $row->id;  ?></h3>
-
-<?php } ?>
 <?php include('footer.php');?>

@@ -1,13 +1,9 @@
 <?php
 class Page_boatmodel extends CI_Model {
-  public function getData() // สร้าง Method ชื่อว่า getAllTemplate
+  public function detail_boat($id)
   {
-    $query = $this->db->query('SELECT * FROM phuketnews_yacht Where   id = 1' );
-    if($query->num_rows() > 0 ) {
-      return $query->result();
-    }
-    else {
-      return array();
-    }
-}
+    $this->db->where('id',$id);
+    $query = $this->db->get('phuketnews_yacht');
+    return $query->result();
+  }
 }
