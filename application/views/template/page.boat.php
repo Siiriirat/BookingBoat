@@ -17,12 +17,13 @@
 <!-- ButtonBooking -->
 <br><br>
 <!-- Modal -->
+
 <form action="<?php echo base_url(); ?>Page_Boat/submit_form" method="post" accept-charset="utf-8">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
 		     <div class="modal-header">
-		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $name; ?></h5></b>
+		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $show->title; ?></h5></b>
 		       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		         <span aria-hidden="true">&times;</span>
 		       </button>
@@ -219,6 +220,10 @@
     </div>
 <!-- DetailBoat -->
 </div>
+<?php foreach($show as $row){ ?>
+        <h3><?php echo $row->id;  ?></h3>
+
+<?php } ?>
 <!-- ScriptImageslide -->
 <script>
 var slideIndex = 1;
@@ -251,4 +256,8 @@ function showSlides(n) {
 }
 </script>
 <!-- ScriptImageslide -->
+<?php foreach($show as $row){ ?>
+        <h3><?php echo $row->id;  ?></h3>
+
+<?php } ?>
 <?php include('footer.php');?>
