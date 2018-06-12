@@ -7,10 +7,23 @@ class Page_home extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model('Page_homemodel');
+		$data['records'] = $this->Page_homemodel->getData();
 		$data['module'] = $this->module;
-		$data['show'] = $this->Page_homemodel->getData();
 		$this->load->view('template/page.home.php', $data);
 	}
 
+	public function getSearchBoat()
+	{
+	  $category 	= $this->input->post('category');
+		$type 		  = $this->input->post('type');
+		$destination = $this->input->post('destinations');
+		$cabins 		= $this->input->post('cabins');
+		$price 			= $this->input->post('price');
 
+    $data['result'] = $this->Page_homemodel->searchboat($category,$type);
+		$data['module'] = $this->module;
+		print_r($data['result']);
+		$this->load->view('template/page.home.php',$data);
+	}
 }
