@@ -92,7 +92,7 @@
                         </div>
                         <div class="mySlides">
                           <div class="numbertext">2 / 6</div>
-                          <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
+                          <img src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%">
                         </div>
                         <div class="mySlides">
                           <div class="numbertext">3 / 6</div>
@@ -100,15 +100,15 @@
                         </div>
                         <div class="mySlides">
                           <div class="numbertext">4 / 6</div>
-                          <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
+                          <img src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%">
                         </div>
                         <div class="mySlides">
                           <div class="numbertext">5 / 6</div>
-                          <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
+                          <img src="<?php echo base_url(); ?>/public/image/2.jpg" style="width:100%">
                         </div>
                         <div class="mySlides">
                           <div class="numbertext">6 / 6</div>
-                          <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%">
+                          <img src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%">
                         </div>
                         <a class="prev" onclick="plusSlides(-1)">❮</a>
                         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -121,19 +121,19 @@
                             <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
                           </div>
                           <div class="column">
                             <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/2.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
                           </div>
                         </div>
                       </div>

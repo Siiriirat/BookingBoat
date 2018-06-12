@@ -85,7 +85,6 @@
         </div>
   </div>
 <!-- /form card cc payment -->
-
 <!-- promotion boat -->
     <div class="col-sm-9">
       <h3 class="text-center">Promotions</h3><br>
@@ -120,7 +119,7 @@
 </div>
 <?php foreach($show as $row){ ?>
         <h3><?php echo $row->id;  ?></h3>
-        <a href="<?php echo base_url('Page_boat/detail_boat?id='.$row->id.''); ?>">View</a> |
+        <a href="<?php echo base_url('Page_boat/detail_Boat?id='.$row->id.''); ?>">View</a> |
 <?php } ?>
 
 <?php include('footer.php');?>
