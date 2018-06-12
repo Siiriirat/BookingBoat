@@ -19,7 +19,7 @@
 
 <br><br>
 <!-- Modal -->
-<form action="<?php echo base_url(); ?>Page_Boat/submit_form" method="post" accept-charset="utf-8">
+<form action="<?php echo base_url('Page_booking/booking_Boat?id='.$show[0]->id.''); ?>" method="post" accept-charset="utf-8">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
@@ -199,6 +199,7 @@
 							<div class="card-body">
 									<h3 class="text-center">Contact us</h3>
 										<hr>
+                   <form action="http://localhost/BookingBoat/index.php/Page_boat/sendemailus" post method="post" accept-charset="utf-8">
 										<div class="form-group">
 											<div align="left">
 													<label for="Name">Name :</label>
@@ -217,11 +218,12 @@
 											</div>
 													<textarea name="message" class="form-control"></textarea>
 										</div>
+                   </form>
 						</div>
 						<div class="form-group row">
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
-										<a class="btn btn-primary"><font color= "white"><i class="fa fa-envelope"></i> Send </font></a>
+										<button class="btn btn-primary" type="submit"><font color= "white"><i class="fa fa-envelope"></i> Send </font></button>
 								</div>
 								<div class="col-md-4"></div>
 						</div>
