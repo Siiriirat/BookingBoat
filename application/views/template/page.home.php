@@ -71,10 +71,10 @@
           <div class="card-body">
               <h3 class="text-center">Search By Name</h3>
               <hr>
-              <form class="form" role="form" autocomplete="off">
+              <form action="http://localhost/BookingBoat/index.php/Page_home/sgetSearchnameBoat" post method="post" accept-charset="utf-8">
                   <div class="form-group">
                       <label for="cc_name">Input Name</label>
-                      <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required" name="name">
+                      <input type="text" class="form-control" id="cc_name" title="First and last name" required="required" name="name">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -117,4 +117,14 @@
 
   </div>
 </div>
+<br>
+
+<div class="container-fluid">
+  <?php if(isset($halaman)){ ?>
+    <center>
+    <?php echo $halaman; ?>
+    <?php } ?>
+    </center>
+</div>
+
 <?php include('footer.php');?>
