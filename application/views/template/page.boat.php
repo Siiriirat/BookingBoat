@@ -2,12 +2,12 @@
 <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" height="600 px" width="100%">
 		<!-- Button trigger modal -->
 <br><br>
+
 <nav class="container-fluid">
   <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
   <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.''; ?>"><?php echo $show[0]->category_slug;?></a>
 	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
 </nav>
-<div class="container-fluid">
 <!-- ButtonBooking -->
 	<div align="right">
 		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
@@ -15,6 +15,8 @@
 		</button>
 	</div>
 <!-- ButtonBooking -->
+<div class="container-fluid">
+
 <br><br>
 <!-- Modal -->
 <form action="<?php echo base_url(); ?>Page_Boat/submit_form" method="post" accept-charset="utf-8">
@@ -118,22 +120,22 @@
                         <div class="container" style="width:100%">
                         <div class="row">
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="height: 56px; width: 74px;" onclick="currentSlide(1)" alt="The Woods">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="height: 56px; width: 74px;" onclick="currentSlide(2)" alt="Cinque Terre">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg.png" style="height: 56px; width: 74px;" onclick="currentSlide(3)" alt="Mountains and fjords">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="height: 56px; width: 74px;" onclick="currentSlide(4)" alt="Northern Lights">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/2.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/2.jpg" style="height: 56px; width: 74px;" onclick="currentSlide(5)" alt="Nature and sunrise">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                            <img class="demo cursor" src="<?php echo base_url(); ?>/public/image/1.jpg" style="height: 56px; width: 74px;" onclick="currentSlide(6)" alt="Snowy Mountains">
                           </div>
                         </div>
                       </div>
@@ -150,11 +152,24 @@
  										<div class="font-bold"><strong>Description</strong></div><br>
  										<address class="m-t-md">
                         <?php echo $show[0]->description;?><br><br>
-                        <?php if($show[0]->want_to == "sale") {?>
-                        <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
-                        <?php echo $show[0]->want_to;?>
-                        <input type="checkbox" name="want_to" value="charter" disabled> charter
-                        <?php } ?>
+                        <?php
+                          if($show[0]->want_to == "sale") {?>
+                            <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
+                            <span class="badge badge-danger"> <?php echo $show[0]->want_to;?> </span>
+                            <input type="checkbox" name="want_to" value="charter" disabled> <span class="badge badge-primary"> charter </span>
+                        <?php } ?> <br>
+                        <?php
+                          if($show[0]->want_to == "charter") {?>
+                            <input type="checkbox" name="want_to" value="sale" disabled> <span class="badge badge-primary"> sale </span>
+                            <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
+                            <span class="badge badge-danger"> <?php echo $show[0]->want_to;?> </span>
+                        <?php } ?> <br>
+                      <?php
+                          foreach ($locations as $location) { ?>
+                           <?php if($location->location_id == $show[0]->location_id)
+                                echo "<b>"."Location :". "</b>". $location->title;
+                           ?>
+                     <?php }?>
  										</address>
 									 </div>
 									</div>
@@ -171,8 +186,8 @@
 	 									</li>
 	 								 </ul>
 	 								 <div class="tab-content" id="myTabContent">
-	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab"><div align= "left"><?php echo $show[0]->description;?></div></div>
-	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab"><div align= "left"><?php echo $show[0]->detail;?></div></div>
+	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab"><br><div align= "left"><h4><?php echo $show[0]->title;?></h4><br><?php echo $show[0]->description;?></div><br></div>
+	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab"><br><div align= "left"><?php echo $show[0]->detail;?></div><br></div>
 	 								 </div>
 								 </div>
 							 </div>
