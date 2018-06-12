@@ -4,7 +4,7 @@
 <br><br>
 <nav class="container-fluid">
   <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
-  <a class="breadcrumb-item" href="#"><?php echo $show[0]->category_id;?></a>
+  <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.''; ?>"><?php echo $show[0]->category_slug;?></a>
 	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
 </nav>
 <div class="container-fluid">
