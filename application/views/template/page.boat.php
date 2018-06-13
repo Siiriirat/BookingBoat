@@ -2,21 +2,30 @@
 <img src="<?php echo base_url(); ?>/public/image/1.jpg.png" height="600 px" width="100%">
 		<!-- Button trigger modal -->
 <br><br>
-
-<nav class="container-fluid">
-  <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
-  <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.''; ?>"><?php echo $show[0]->category_slug;?></a>
-	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
-</nav>
-<!-- ButtonBooking -->
-	<div align="right">
-		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-		  Booking
-		</button>
-	</div>
-<!-- ButtonBooking -->
+<div class="form-inline">
+  <div class="col-md-9">
+    <!-- Menu -->
+    <nav class="container-fluid">
+      <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
+      <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.''; ?>"><?php echo $show[0]->category_slug;?></a>
+    	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
+    </nav>
+    <!-- Menu -->
+  </div>
+  <div class="col-md-3">
+    <!-- ButtonBooking -->
+    <?php
+    if($show[0]->want_to == "charter") {?>
+    	<div align="right">
+    		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+    		  Booking
+    		</button>
+    	</div>
+    <?php } ?>
+    <!-- ButtonBooking -->
+  </div>
+</div>
 <div class="container-fluid">
-
 <br><br>
 <!-- Modal -->
 <form action="<?php echo base_url('Page_booking/booking_Boat?id='.$show[0]->id.''); ?>" method="post" accept-charset="utf-8">
@@ -67,8 +76,8 @@
 				 </div>
 		     </div>
 		     <div class="modal-footer">
-					 <input type="hidden" id="name" name="name" value="">
-					 <input type="hidden" id="type" name="type" value="">
+					 <input type="hidden" id="name" name="name" value="1">
+					 <input type="hidden" id="id" name="id" value="<?php echo $show[0]->id ?>">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		       <button type="submit" class="btn btn-primary">Save changes</button>
 		     </div>
@@ -195,30 +204,45 @@
 					</div>
 			</div>
         <div class="col-md-4">
+          <form action="http://localhost/BookingBoat/index.php/Page_boat/sendemailus" post method="post" accept-charset="utf-8">
 					<div class="card card-outline-secondary">
 							<div class="card-body">
 									<h3 class="text-center">Contact us</h3>
 										<hr>
-                   <form action="http://localhost/BookingBoat/index.php/Page_boat/sendemailus" post method="post" accept-charset="utf-8">
-										<div class="form-group">
-											<div align="left">
-													<label for="Name">Name :</label>
+                    <div class="form-group">
+                      <div align="left">
+													<label for="BoatName">Boatname :</label>
 											</div>
-													<input type="text" name="name" class="form-control">
-										</div>
-										<div class="form-group">
-											<div align="left">
-													<label for="Email">Email :</label>
-											</div>
-													<input type="email" name="email" class="form-control">
-										</div>
+													<input type="text" name="bname" value="<?php echo $show[0]->title;?>" class="form-control" disabled>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div align="left">
+  													<label for="Name">Name :</label>
+  											</div>
+  													<input type="text" name="name" class="form-control" required>
+                        <div align="left">
+      											<label for="Phone">Phone :</label>
+      									</div>
+      											<input type="phone" name="phone" class="form-control" required>
+                      </div>
+                      <div class="col-md-6">
+                        <div align="left">
+  													<label for="Email">Email :</label>
+  											</div>
+  													<input type="email" name="email" class="form-control" required>
+                        <div align="left">
+      											<label for="Title">Title :</label>
+      									</div>
+      											<input type="title" name="title" class="form-control" required>
+                      </div>
+                    </div><br>
 										<div class="form-group">
 											<div align="left">
 													<label for="Message">Message :</label>
 											</div>
 													<textarea name="message" class="form-control"></textarea>
 										</div>
-                   </form>
 						</div>
 						<div class="form-group row">
 								<div class="col-md-4"></div>
@@ -228,6 +252,7 @@
 								<div class="col-md-4"></div>
 						</div>
 					</div><br>
+        </form>
         </div>
     </div>
 <!-- DetailBoat -->

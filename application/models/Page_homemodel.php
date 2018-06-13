@@ -10,7 +10,9 @@ class Page_homemodel extends  CI_model{
       //   }
       // $query = $this->db->get('phuketnews_yacht');
       // return $query->result();
-        return $this->db->get('phuketnews_yacht',$perpage,$offset)->result();
+      $this->db->like('want_to ','charter');
+      $query =  $this->db->get('phuketnews_yacht',$perpage,$offset);
+      return $query->result();
     }
 
     public function searchboat($category,$type )

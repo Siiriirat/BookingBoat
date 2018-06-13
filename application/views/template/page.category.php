@@ -1,11 +1,9 @@
 <?php include('header.php');?>
 <br><br><br>
-
 <nav class="container-fluid">
   <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
 	<span class="breadcrumb-item active">ALL <?php echo $type;?></span>
 </nav>
-
 <!-- menu -->
 <div class="container-fluid">
     <div class="row">
@@ -14,13 +12,17 @@
     {
       foreach ($categorys as $category) { ?>
       <div class="col-md-4"><br>
-        <div class="card" style="height: 25rem;">
-          <img class="card-img-top" src="<?php echo base_url().$category->category_slug;?>" alt="Card image cap">
-            <div class="card-body">
-            <h4 class="card-title"> <?php echo $category->title; ?>       </h4>
-            <p class="card-text">   <?php echo $category->description; ?> </p>
-            <a class="btn btn-success" href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>">booking</a>
-            </div>
+        <div class="card">
+           <div class="header"><img class="card-img-top" src="<?php echo base_url(); ?>/public/image/3.jpg.png" alt="Card image cap"></div>
+         <div class="container">
+           <div class="body">
+             <br><strong><h4><a href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>"><font color="black"><?php echo $category->title; ?></font></a></h4></strong><br>
+             <?php
+                echo character_limiter(($category->description), 150);
+             ?><br><br>
+           </div>
+           <div class="footer"><div align = "right"><a class="btn btn-primary" style="width: 10rem;" href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>">Detail</a></div><br></div>
+         </div>
         </div>
       </div>
     <?php }?>
