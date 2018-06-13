@@ -7,7 +7,7 @@
     <!-- Menu -->
     <nav class="container-fluid">
       <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
-      <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.''; ?>"><?php echo $show[0]->category_slug;?></a>
+      <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.'' ; ?>"><?php echo $show[0]->category_slug;?></a>
     	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
     </nav>
     <!-- Menu -->
@@ -204,7 +204,7 @@
 					</div>
 			</div>
         <div class="col-md-4">
-          <form action="http://localhost/BookingBoat/index.php/Page_boat/sendemailus" post method="post" accept-charset="utf-8">
+          <form action="http://localhost/BookingBoat/Page_boat/sendemailus" post method="post" accept-charset="utf-8">
 					<div class="card card-outline-secondary">
 							<div class="card-body">
 									<h3 class="text-center">Contact us</h3>
@@ -247,6 +247,7 @@
 						<div class="form-group row">
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
+                    <input type="hidden" id = "yacth_id" name="yatch_id" value="<?php echo $show[0]->id ?>">
 										<button class="btn btn-primary" type="submit"><font color= "white"><i class="fa fa-envelope"></i> Send </font></button>
 								</div>
 								<div class="col-md-4"></div>

@@ -7,11 +7,9 @@
 <!-- menu -->
 <div class="container-fluid">
     <div class="row">
-    <?php
-    if(isset($categorys))
-    {
-      foreach ($categorys as $category) { ?>
-      <div class="col-md-4"><br>
+    <?php if(isset($categorys)){ ?>
+      <?php foreach ($categorys as $category) { ?>
+       <div class="col-md-4"><br>
         <div class="card">
            <div class="header"><img class="card-img-top" src="<?php echo base_url(); ?>/public/image/3.jpg.png" alt="Card image cap"></div>
          <div class="container">
@@ -24,9 +22,16 @@
            <div class="footer"><div align = "right"><a class="btn btn-primary" style="width: 10rem;" href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>">Detail</a></div><br></div>
          </div>
         </div>
-      </div>
-    <?php }?>
-    <?php  }?>
+       </div>
+      <?php } ?>
+    <?php } ?>
     </div>
 </div>
+<center>
+<div class="container-fluid">
+  <?php if(isset($links)){
+    echo $links;
+  }?>
+</div>
+</center>
 <?php include('footer.php');?>
