@@ -43,7 +43,7 @@
 					<div class="col md-6">
 					 <div class="form-group">
              <b><label for="Departure Date">Departure Date :</label></b>
-             <input type="date" name="date" class="form-control">
+             <input type="date" name="departure" class="form-control">
            </div>
 					 <div class="form-group">
              <b><label for="How many guests ?">How many guests ? :</label></b>
@@ -66,7 +66,7 @@
 				 </center>
 				 <div class="row">
 					<div class="col md-6">
-             <input type="text" name="name" class="form-control" placeholder="Name"><br>
+             <input type="text" name="namecustomer" class="form-control" placeholder="Name"><br>
              <input type="email" name="email" class="form-control" placeholder="E-mail">
 					</div>
 					<div class="col md-6">
@@ -213,7 +213,8 @@
                       <div align="left">
 													<label for="BoatName">Boatname :</label>
 											</div>
-													<input type="text" name="bname" value="<?php echo $show[0]->title;?>" class="form-control" disabled>
+                          <input type="text" name="" value="<?php echo $show[0]->title;?>" class="form-control" disabled>
+                          <input type="hidden" name="bname" class="form-control" value="<?php echo $show[0]->title;?>" required>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
@@ -247,7 +248,8 @@
 						<div class="form-group row">
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
-                    <input type="hidden" id = "yacth_id" name="yatch_id" value="<?php echo $show[0]->id ?>">
+                    <!-- yacht_id and name -->
+       				  	  <input type="hidden" name="id" value="<?php echo $show[0]->id ?>">
 										<button class="btn btn-primary" type="submit"><font color= "white"><i class="fa fa-envelope"></i> Send </font></button>
 								</div>
 								<div class="col-md-4"></div>

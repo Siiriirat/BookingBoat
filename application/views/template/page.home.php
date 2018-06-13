@@ -106,7 +106,7 @@
             <div class="card-body">
             <h4 class="card-title"> <?php echo $row->title; ?>       </h4>
             <p class="card-text">   <?php echo $row->description; ?> </p>
-            <a class="btn btn-success" href="<?php echo base_url('Page_boat/detail_Boat?id='.$row->id.''); ?>">booking</a>
+            <a class="btn btn-warning" href="<?php echo base_url('Page_boat/detail_Boat?id='.$row->id.''); ?>">Detail</a>
             </div>
        </div>
      </div>
