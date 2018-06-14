@@ -7,8 +7,16 @@ class Page_home extends CI_Controller {
 
 	public function index($offset=0)
 	{
-		$this->db->like('want_to ','charter');
- 		$data_mhs = $this->db->get('phuketnews_yacht');
+		//$this->db->like('want_to ','charter');
+ 		//$data_mhs = $this->db->get('phuketnews_yacht');
+
+		$charters = $this->Boat->get_charter(1);
+
+		//echo '<pre>';
+		//print_r($charters);
+	//	exit;
+
+		/*
 			// config pagination
 		$config['total_rows'] = $data_mhs->num_rows();
 		$config['base_url'] = base_url(). 'index.php/Page_home/index';
@@ -20,10 +28,12 @@ class Page_home extends CI_Controller {
 		$data['records'] = $this->Page_homemodel->getData($config['per_page'],$offset);
 			// $this->load->model('Page_homemodel');
 			// $data['records'] = $this->Page_homemodel->getData();
+			*/
 		$data['module'] = $this->module;
+		$data['charters'] = $charters;
 		$this->load->view('template/page.home.php', $data);
 	}
-	
+
 	public function sindex($offset=0)
 	{
 		$this->db->like('want_to ','sale');
