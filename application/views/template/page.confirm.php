@@ -1,65 +1,53 @@
 <?php include('header.php');?>
-<br><br><br>
-<center>
+<!-- <img src="<?php echo base_url(); ?>/public/image/1.jpg" > -->
+<img src="<?php echo base_url(); ?>/public/image/3.jpg" height="400px" width="100%">
+
 <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/Page_booking.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="col-md-10">
-    <div class="contact-box center-version">
-          <div class="row">
-            <div class="col md-6">
-              <div align="left">
-                 <img src="<?php echo base_url(); ?>/public/image/1.jpg.png"   width="100%"  height="100%">
-              </div>
-            </div>
-            <div class="col md-6"><br>
-             <div align="left">
-              <h3 class="m-b-xs">
 
-                  <input type="text" name="name" value="<?php echo $user['name'];?>" class="form-control">
-                  <input type="hidden" name="name" class="form-control" value="<?php echo $user['name'];?>" required>
-
-                  <br>
-
-              </h3>
-              <div class="row">
-                <div class="col-md-6">
-                  <div align="left">
-                      <label for="Name">Name :</label>
-                  </div>
-                      <input type="text" name="name" value="<?php echo $user['name'];?>" class="form-control" required>
-                  <div align="left">
-                      <label for="Phone">Phone :</label>
-                  </div>
-                      <input type="phone" name="phone" class="form-control" required>
-                </div>
-                <div class="col-md-6">
-                  <div align="left">
-                      <label for="Email">Email :</label>
-                  </div>
-                      <input type="email" name="email" class="form-control" required>
-                  <div align="left">
-                      <label for="Title">Title :</label>
-                  </div>
-                      <input type="title" name="title" class="form-control" required>
-                </div>
-              </div>
-              <div class="font-bold"><strong>Description</strong></div><br>
-              <address class="m-t-md">
-                <?php
-                  echo $user['name'];
-                ?><br><br>
-                   <br>
-                   <?php
-                     echo $user['name'];
-                   ?>
-              </address>
-             </div>
-            </div>
-          </div>
+<div class="p-3 mb-2 bg-light text-dark"><b>Reservation Status</b></div>
+<div class="container-fluid">
+  <form action="http://localhost/BookingBoat/Page_confirm/SearchEmailStatus" post method="post" accept-charset="utf-8">
+  <div class="float-right">
+    <div class="form-inline">
+      <label for="email">Email address:</label>&nbsp;
+      <input type="email" name="email" class="form-control" id="email" autocomplete="off" required>&nbsp;
+      <button class="btn btn-primary" type="submit">Search</button>
     </div>
+  </div>
+</form>
+  <br>
+  <br>
+  <hr>
+<?php if(isset($key)){ ?>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Departure</th>
+      <th scope="col">days</th>
+      <th scope="col">guests</th>
+      <th scope="col">NameBoat</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($key as $row) { ?>
+    <tr>
+      <th scope="row"><?php echo $row->name ?></th>
+      <td><?php echo $row->email ?></td>
+      <td><?php echo $row->phone ?></td>
+      <td><?php echo $row->date ?></td>
+      <td><?php echo $row->day ?></td>
+      <td><?php echo $row->guest ?></td>
+      <td><?php  ?></td>
+    </tr>
+  <?php } ?>
+  </tbody>
+</table>
+<?php } ?>
 </div>
-</center>
-
 
 
 

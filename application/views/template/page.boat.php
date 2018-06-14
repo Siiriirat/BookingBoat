@@ -28,7 +28,7 @@
 <div class="container-fluid">
 <br><br>
 <!-- Modal -->
-<form action="<?php echo base_url('Page_confirm/confirm_boat'); ?>" method="post" accept-charset="utf-8">
+<form action="<?php echo base_url('Page_booking/booking_Boat'); ?>" method="post" accept-charset="utf-8">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
@@ -79,13 +79,24 @@
 					 <input type="hidden" id="name" name="name" value="1">
 					 <input type="hidden" id="id" name="id" value="<?php echo $show[0]->id ?>">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		       <button type="submit" class="btn btn-primary">Save changes</button>
+		       <button type="submit" class="btn btn-primary" onclick="myFunction()">Save changes</button>
 		     </div>
 		   </div>
 		 </div>
 	</div>
 </form>
 <!-- Modal -->
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("Confirm your booking")) {
+        txt = "You pressed OK";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
 <!-- DetailBoat -->
     <div class="row">
 			<link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/Page_booking.css">

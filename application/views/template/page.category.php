@@ -16,7 +16,7 @@
            <div class="body">
              <br><strong><h5><a href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>"><font color="black"><?php echo $category->title; ?></font></a></h5></strong><br>
              <?php
-                echo character_limiter(($category->description), 150);
+                echo character_limiter(($category->description), 100);
              ?><br><br>
            </div>
            <div class="footer"><div align = "right"><a class="btn btn-warning" style="width: 10rem;" href="<?php echo base_url('Page_boat/detail_Boat?id='.$category->id.''); ?>">Detail</a></div><br></div>

@@ -52,6 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Page_home';
 $route['Page_boat/(:any)/(:num)/(:any)'] = 'Page_boat/category_Boat/$1/$2/$3';
 $route['Page_boat/(:any)/(:num)'] = 'Page_boat/category_Boat/$1/$2';
+$route['Page_confirm/(:any)']['POST'] = 'Page_confirm/SearchEmailStatus';
+$route['Page_confirm/(:any)']['GET'] = 'Page_confirm/getSearchEmailStatus';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

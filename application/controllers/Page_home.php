@@ -23,7 +23,7 @@ class Page_home extends CI_Controller {
 		$data['module'] = $this->module;
 		$this->load->view('template/page.home.php', $data);
 	}
-
+	
 	public function sindex($offset=0)
 	{
 		$this->db->like('want_to ','sale');

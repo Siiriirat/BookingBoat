@@ -3,7 +3,7 @@ class Page_booking extends CI_Controller{
   public function booking_Boat()
   {
       $data = array(
-                  'yacth_id'=>$this->input->get('id'),
+                  'yacth_id'=>$this->input->post('id'),
                   'name'=>$this->input->post('name')
                  );
         $user_booking = array(
@@ -17,6 +17,7 @@ class Page_booking extends CI_Controller{
                       );
           $this->load->model('Page_bookingmodel');
           $this->Page_bookingmodel->booking_add($user_booking);
-          redirect(base_url().'Page_boat/detail_Boat?id='.$data['yacth_id'], 'refresh');
+
+      		$this->load->view('template/page.confirm.php');
    }
 }

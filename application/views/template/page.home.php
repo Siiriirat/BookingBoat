@@ -93,8 +93,7 @@
 
 <!-- promotion boat -->
 <div class="col-sm-9">
-<h3 class="text-center">Promotions</h3><br>
-  <div class="card-deck">
+<h3 class="text-center">Phuketnews Yacht</h3><br>
     <div class="row">
     <?php
     if($records)
@@ -102,17 +101,16 @@
       foreach($records as $row){ ?>
       <div class="col-md-4"><br>
         <div class="card">
-          <img class="card-img-top" src="<?php echo base_url(); ?> <?php echo $row->thumbnail; ?>" alt="Card image cap">
+          <img class="card-img-top" src="<?php echo base_url(); ?>/public/image/2.jpg" alt="Card image cap">
             <div class="card-body">
-            <h4 class="card-title"> <?php echo $row->title; ?>       </h4>
-            <p class="card-text">   <?php echo $row->description; ?> </p>
+            <h6 class="card-title"> <?php echo $row->title; ?> </h6>
+            <p class="card-text">  <?php echo character_limiter(($row->description), 100);?>  </p>
             <a class="btn btn-warning" href="<?php echo base_url('Page_boat/detail_Boat?id='.$row->id.''); ?>">Detail</a>
             </div>
        </div>
      </div>
    <?php } }?>
     </div>
-  </div>
 </div>
 
   </div>
