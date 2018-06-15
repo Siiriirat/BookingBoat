@@ -7,15 +7,15 @@
     <!-- Menu -->
     <nav class="container-fluid">
       <a class="breadcrumb-item" href="<?php echo base_url(); ?>Page_home">Home</a>
-      <a class="breadcrumb-item" href="<?php echo $show[0]->category_slug.'/'.$show[0]->category_id.'' ; ?>"><?php echo $show[0]->category_slug;?></a>
-    	<span class="breadcrumb-item active"><?php echo $show[0]->title;?></span>
+      <a class="breadcrumb-item" href="<?php echo base_url().'Page_category/'.$category[0]->category_slug.'/'.$category[0]->category_id.'' ; ?>"><?php echo $category[0]->category_slug;?></a>
+    	<span class="breadcrumb-item active"><?php echo $detail[0]->title;?></span>
     </nav>
     <!-- Menu -->
   </div>
   <div class="col-md-3">
     <!-- ButtonBooking -->
     <?php
-    if($show[0]->want_to == "charter") {?>
+    if($detail[0]->want_to == "charter") {?>
     	<div align="right">
     		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
     		  Booking
@@ -33,7 +33,7 @@
 		 <div class="modal-dialog" role="document">
 		   <div class="modal-content">
 		     <div class="modal-header">
-		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $show[0]->title;?></h5></b>
+		       <b><h5 class="modal-title" id="exampleModalLabel"><?php echo $detail[0]->title;?></h5></b>
 		       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		         <span aria-hidden="true">&times;</span>
 		       </button>
@@ -77,7 +77,7 @@
 		     </div>
 		     <div class="modal-footer">
 					 <input type="hidden" id="name" name="name" value="1">
-					 <input type="hidden" id="id" name="id" value="<?php echo $show[0]->id ?>">
+					 <input type="hidden" id="id" name="id" value="<?php echo $detail[0]->id ?>">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		       <button type="submit" class="btn btn-primary" onclick="myFunction()">Save changes</button>
 		     </div>
@@ -166,30 +166,29 @@ function myFunction() {
 									 <div align="left">
 										<h3 class="m-b-xs">
                       <strong>
-                        <?php echo $show[0]->title;?><br>
+                        <?php echo $detail[0]->title;?><br>
                       </strong>
                     </h3>
  										<div class="font-bold"><strong>Description</strong></div><br>
  										<address class="m-t-md">
-                        <?php echo $show[0]->description;?><br><br>
+                        <?php echo $detail[0]->description;?><br><br>
                         <?php
-                          if($show[0]->want_to == "sale") {?>
-                            <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
-                            <span class="badge badge-danger"> <?php echo $show[0]->want_to;?> </span>
+                          if($detail[0]->want_to == "sale") {?>
+                            <input type="checkbox" name="want_to" value="<?php echo $detail[0]->want_to;?>" checked disabled>
+                            <span class="badge badge-danger"> <?php echo $detail[0]->want_to;?> </span>
                             <input type="checkbox" name="want_to" value="charter" disabled> <span class="badge badge-primary"> charter </span>
                         <?php } ?> <br>
                         <?php
-                          if($show[0]->want_to == "charter") {?>
+                          if($detail[0]->want_to == "charter") {?>
                             <input type="checkbox" name="want_to" value="sale" disabled> <span class="badge badge-primary"> sale </span>
-                            <input type="checkbox" name="want_to" value="<?php echo $show[0]->want_to;?>" checked disabled>
-                            <span class="badge badge-danger"> <?php echo $show[0]->want_to;?> </span>
+                            <input type="checkbox" name="want_to" value="<?php echo $detail[0]->want_to;?>" checked disabled>
+                            <span class="badge badge-danger"> <?php echo $detail[0]->want_to;?> </span>
                         <?php } ?> <br>
-                      <?php
-                          foreach ($locations as $location) { ?>
-                           <?php if($location->location_id == $show[0]->location_id)
-                                echo "<b>"."Location :". "</b>". $location->title;
-                           ?>
-                     <?php }?>
+
+                     <?php if(isset($location[0])){ ?>
+
+                       <?php echo '<b>'."Location : ".'</b>'. $location[0]->title; ?>
+                       <?php } ?>
  										</address>
 									 </div>
 									</div>
@@ -206,8 +205,8 @@ function myFunction() {
 	 									</li>
 	 								 </ul>
 	 								 <div class="tab-content" id="myTabContent">
-	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab"><br><div align= "left"><h4><?php echo $show[0]->title;?></h4><br><?php echo $show[0]->description;?></div><br></div>
-	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab"><br><div align= "left"><?php echo $show[0]->detail;?></div><br></div>
+	 									<div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab"><br><div align= "left"><h4><?php echo $detail[0]->title;?></h4><br><?php echo $detail[0]->description;?></div><br></div>
+	 									<div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="profile-tab"><br><div align= "left"><?php echo $detail[0]->detail;?></div><br></div>
 	 								 </div>
 								 </div>
 							 </div>
@@ -224,8 +223,8 @@ function myFunction() {
                       <div align="left">
 													<label for="BoatName">Boatname :</label>
 											</div>
-                          <input type="text" name="" value="<?php echo $show[0]->title;?>" class="form-control" disabled>
-                          <input type="hidden" name="bname" class="form-control" value="<?php echo $show[0]->title;?>" required>
+                          <input type="text" name="" value="<?php echo $detail[0]->title;?>" class="form-control" disabled>
+                          <input type="hidden" name="bname" class="form-control" value="<?php echo $detail[0]->title;?>" required>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
@@ -260,7 +259,7 @@ function myFunction() {
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
                     <!-- yacht_id and name -->
-       				  	  <input type="hidden" name="id" value="<?php echo $show[0]->id ?>">
+       				  	  <input type="hidden" name="id" value="<?php echo $detail[0]->id ?>">
 										<button class="btn btn-primary" type="submit"><font color= "white"><i class="fa fa-envelope"></i> Send </font></button>
 								</div>
 								<div class="col-md-4"></div>

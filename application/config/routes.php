@@ -50,10 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Page_home';
-$route['Page_boat/(:any)/(:num)/(:any)'] = 'Page_boat/category_Boat/$1/$2/$3';
-$route['Page_boat/(:any)/(:num)'] = 'Page_boat/category_Boat/$1/$2';
+// $route['Page_boat/(:any)/(:num)/(:any)'] = 'Page_boat/category_Boat/$1/$2/$3';
+// $route['Page_boat/(:any)/(:num)'] = 'Page_boat/category_Boat/$1/$2';
 $route['Page_confirm/(:any)']['POST'] = 'Page_confirm/SearchEmailStatus';
 $route['Page_confirm/(:any)']['GET'] = 'Page_confirm/getSearchEmailStatus';
+
+$route['Page_category/(:any)/(:num)'] = 'Page_category/category_Boat/$1/$2';
+$route['Page_category/(:any)/(:num)/(:num)'] = 'Page_category/category_Boat/$1/$2/$3';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

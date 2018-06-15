@@ -11,13 +11,11 @@ class Page_booking extends CI_Controller{
                           'name'     => $this->input->post('namecustomer'),
                           'email'    => $this->input->post('email'),
                           'phone'    => $this->input->post('phone'),
-                          'date'     => $this->input->post('departure'),
+                          'departure'     => $this->input->post('departure'),
                           'day'     => $this->input->post('days'),
                           'guest'    => $this->input->post('guests')
                       );
-          $this->load->model('Page_bookingmodel');
-          $this->Page_bookingmodel->booking_add($user_booking);
-
-      		$this->load->view('template/page.confirm.php');
+          $this->Booking->insert($user_booking);
+      		redirect(base_url().'Page_confirm/getSearchEmailStatus', 'refresh');
    }
 }

@@ -19,6 +19,7 @@
   <br>
   <br>
   <hr>
+<!-- table data check status -->
 <?php if(isset($key)){ ?>
 <table class="table">
   <thead>
@@ -38,10 +39,10 @@
       <th scope="row"><?php echo $row->name ?></th>
       <td><?php echo $row->email ?></td>
       <td><?php echo $row->phone ?></td>
-      <td><?php echo $row->date ?></td>
+      <td><?php echo $row->departure ?></td>
       <td><?php echo $row->day ?></td>
       <td><?php echo $row->guest ?></td>
-      <td><?php  ?></td>
+      <td><?php echo $row->title ?></td>
     </tr>
   <?php } ?>
   </tbody>

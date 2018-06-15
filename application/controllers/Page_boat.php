@@ -1,35 +1,18 @@
 <?php
 class Page_boat extends CI_Controller{
-  var $type = '';
-
+  var $module = 'boat';
   public function detail_Boat()
   {
     $id = $this->input->get('id');
-		$data['show'] = $this->Page_boatmodel->detail_Boat($id);
-    $data['locations'] = $this->Page_boatmodel->getlocation_Boat();
+		$data['detail'] = $this->Yacht->get_id($id);
+    $data['location'] = $this->Location->get_locationid($data['detail'][0]->location_id);
+    $data['category'] = $this->Category->get_categoryid($data['detail'][0]->category_id);
+    $data['module']   = $this->module;
 		$this->load->view('template/page.boat.php',$data);
-  }
-
-  public function category_Boat()
-  {
-    $category_id  = $this->uri->segment(3);
-    $data['type'] = $this->uri->segment(2);
-    $offset  = $this->uri->segment(4);
-    $database = $this->Page_boatmodel->likecategory_ID($category_id);
-    $config['total_rows'] = $database->num_rows();
-    $config['base_url'] = base_url(). 'Page_boat/'.$data['type'].'/'.$category_id .'';
-    $config['per_page'] = 9;
-
-    $this->pagination->initialize($config);
-    $data['links'] = $this->pagination->create_links();
-    $data['categorys'] = $this->Page_boatmodel->category_Boat($config['per_page'],$offset,$category_id);
-		$this->load->view('template/page.category.php',$data);
   }
 
   public function sendemailus()
   {
-    // load library
-   $this->load->library('email');
    // post value
    $yacth_id = $this->input->post('id');
    $bname   = $this->input->post('bname');

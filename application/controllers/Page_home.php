@@ -1,75 +1,56 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Page_home extends CI_Controller {
-
 	var $module = 'home';
-
 	public function index($offset=0)
 	{
+		$data['module'] = $this->module;
 		//$this->db->like('want_to ','charter');
  		//$data_mhs = $this->db->get('phuketnews_yacht');
-
-		$charters = $this->Boat->get_charter(1);
-
-		//echo '<pre>';
-		//print_r($charters);
-	//	exit;
-
-		/*
-			// config pagination
-		$config['total_rows'] = $data_mhs->num_rows();
-		$config['base_url'] = base_url(). 'index.php/Page_home/index';
-		$config['per_page'] = 10;
+		$charters = $this->Yacht->get_charter($offset);
+		// echo '<pre>';
+		// print_r($charters);
+		// exit;
+// config pagination
+		$config['total_rows'] = $charters['items'];
+		$config['base_url'] = base_url(). 'Page_home/index';
 		$this->pagination->initialize($config);
-
 		$data['halaman'] = $this->pagination->create_links();
-		$data['offset'] = $offset;
-		$data['records'] = $this->Page_homemodel->getData($config['per_page'],$offset);
 			// $this->load->model('Page_homemodel');
 			// $data['records'] = $this->Page_homemodel->getData();
-			*/
-		$data['module'] = $this->module;
-		$data['charters'] = $charters;
+		$data['records'] = $charters['rows'];
 		$this->load->view('template/page.home.php', $data);
 	}
-
 	public function sindex($offset=0)
 	{
-		$this->db->like('want_to ','sale');
-		$data_mhs = $this->db->get('phuketnews_yacht');
+		$data['module'] = $this->module;
+		$sales = $this->Yacht->get_sale($offset);
 		// config pagination
-		$config['total_rows'] = $data_mhs->num_rows();
-		$config['base_url'] = base_url(). 'index.php/Page_home/sindex';
-		$config['per_page'] = 10;
+		$config['total_rows'] = $sales['items'];
+		$config['base_url'] = base_url(). 'Page_home/sindex';
 		$this->pagination->initialize($config);
 		$data['halaman'] = $this->pagination->create_links();
 		$data['offset'] = $offset;
-		$data['records'] = $this->Page_homemodel->getDataSales($config['per_page'],$offset);
-		// $this->load->model('Page_homemodel');
-		// $data['records'] = $this->Page_homemodel->getData();
-		$data['module'] = $this->module;
+		$data['records'] =  $sales['rows'];
 		$this->load->view('template/page.home.php', $data);
 	}
-
 	public function getSearchBoat()
 	{
+		$data['module'] = $this->module;
 		$category 	 = $this->input->post('category');
 		$type 		   = $this->input->post('type');
 		$destination = $this->input->post('destinations');
 		$cabins 		 = $this->input->post('cabins');
 		$price 			 = $this->input->post('price');
-		$data['result'] = $this->Page_homemodel->searchboat($category,$type);
-		$data['module'] = $this->module;
+		$data['result'] = $this->Yacht->searchboat($category,$type);
 		print_r($data['result']);
 		$this->load->view('template/page.home.php',$data);
 	}
-
 	public function sgetSearchnameBoat()
 	{
 		$data['module'] = $this->module;
 		$key = $this->input->post('name');
-		$data['records'] = $this->Page_homemodel->getSearchnameBoat($key);
+		$data['records'] = $this->Yacht->getSearchnameBoat($key);
 		$this->load->view('template/page.home.php',$data);
 	}
 }
